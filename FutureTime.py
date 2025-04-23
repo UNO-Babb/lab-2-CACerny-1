@@ -1,29 +1,29 @@
 #FutureTime.py
-#Name:
-#Date:
-#Assignment:
+#Name: Caden Cerny
+#Date: Feb. 2
+#Assignment: Lab 2
 
 # datetime will allow us to access the system date and time.
 import datetime
 
 def main():
-  #getting current time from system, storing to variable
-  now = datetime.datetime.now()
-  currentHour = now.hour
-  currentMinute = now.minute
+    now = datetime.datetime.now()
+    currentHour = now.hour
+    currentMinute = now.minute
 
-  print (currentHour, currentMinute) #this is just for checking, we should delete it later
+    add_hours = int(input("Enter the number of hours to add: "))
 
-  #TODO:
-  #Ask user for hours
-  #Ask user for minutes
+    add_minutes = int(input("Enter the number of minutes to add: "))
 
-  #Calculate the time after the user-supplied time has passed.
+    total_minutes = currentMinute + add_minutes
+    extra_hours = total_minutes // 60
+    final_minutes = total_minutes % 60
 
-  #Do not use any if statements in calculating the time.
+    final_hour_24 = (currentHour + add_hours + extra_hours) % 24
 
-  #Output the future time in standard format "HH:MM"
+    final_hour = (final_hour_24 - 1) % 12 + 1
 
+    print(f"The time will be: {final_hour}:{final_minutes:02d}")
 
 if __name__ == '__main__':
   main()
